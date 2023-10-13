@@ -6,13 +6,12 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         File info = new File("INFO.txt");
-        Boolean adminAlert = false;
         boolean exitB = false;
         String choose;
         ArrayList<String> users = new ArrayList<>();
         String ADMIN = "";
 
-        while (exitB == false) {
+        while (!exitB) {
             choose = JOptionPane.showInputDialog("menu\n1. REGISTRATE\n2. INICIAR SESION\n3. LISTA DE USUARIOS\n4. EXIT");
             switch (choose) {
                 case "1":
