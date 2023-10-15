@@ -2,13 +2,27 @@ import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         File info = new File("INFO.txt");
+        ArrayList<String> users = new ArrayList<>();
+        try {
+            Scanner fileScanner = new Scanner(info);
+            while(fileScanner.hasNextLine())
+            {
+                users.add(fileScanner.nextLine());
+            }
+        }
+        catch (IOException ex)
+        {
+           ex.printStackTrace();
+        }
+
+
         boolean exitB = false;
         String choose;
-        ArrayList<String> users = new ArrayList<>();
         String ADMIN = "";
 
         while (!exitB) {
@@ -27,7 +41,7 @@ public class Main {
                     exitB=exit(users, exitB,info);
                     break;
                 default:
-                    JOptionPane.showMessageDialog(null, "1ERROR");
+                    JOptionPane.showMessageDialog(null, "ERROR");
             }
             System.out.println(users);
         }//while finish
